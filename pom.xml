@@ -8,6 +8,7 @@
   <name>car Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -20,6 +21,13 @@
       <artifactId>mysql-connector-java</artifactId>
       <version>5.1.30</version>
     </dependency>
+
+    <dependency>
+      <groupId>jstl</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+
 
   </dependencies>
   <build>

@@ -4,4 +4,12 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+    <servlet-name>WorkerController</servlet-name>
+    <servlet-class>controller.WorkerController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WorkerController</servlet-name>
+    <url-pattern>/workers</url-pattern>
+  </servlet-mapping>
 </web-app>

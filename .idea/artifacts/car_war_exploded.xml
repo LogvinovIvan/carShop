@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="cae:war exploded">
+  <artifact type="exploded-war" name="car:war exploded">
     <output-path>$PROJECT_DIR$/target/car</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
@@ -8,6 +8,7 @@
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.30" />
+          <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
         </element>
       </element>
       <element id="directory" name="META-INF">

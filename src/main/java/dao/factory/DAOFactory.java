@@ -9,6 +9,7 @@ import com.mysql.fabric.jdbc.FabricMySQLDriver;
 import dao.daos.CarDAO;
 import dao.daos.WorkerDAO;
 import dao.exception.DAOConnetctionException;
+import entity.Worker;
 
 
 /**
@@ -16,11 +17,11 @@ import dao.exception.DAOConnetctionException;
  */
 public class DAOFactory {
 
-    public WorkerDAO getWorkerDAO() {
+    public static WorkerDAO getWorkerDAO() {
         return new WorkerDAO();
     }
 
-    public CarDAO getCarDAO(){
+    public static CarDAO getCarDAO(){
         return new CarDAO();
     }
 

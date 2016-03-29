@@ -25,7 +25,7 @@ public class WorkerDAO extends AbstractDAO {
         try {
             while (rs.next()) {
                 Worker worker = new Worker();
-                worker.setId(rs.getInt("id"));
+                worker.setId(rs.getInt("idWorker"));
                 worker.setFirstname(rs.getString("firstname"));
                 worker.setLastname(rs.getString("lastname"));
                 worker.setPosition(rs.getString("position"));
