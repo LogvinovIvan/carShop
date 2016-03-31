@@ -39,7 +39,8 @@ public class WorkerController extends HttpServlet {
             view.forward(request, response);
 
        } catch (DAOException e) {
-            e.printStackTrace();
+            RequestDispatcher view = request.getRequestDispatcher("/error.jsp");
+            view.forward(request,response);
         }
     }
 }

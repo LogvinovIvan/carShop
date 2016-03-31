@@ -14,7 +14,7 @@
 <body>
     <div class="wrapper">
         <div class="error">
-            <a class="home" href="localhost:8080/index">HOME</a>
+            <a class="home" href="http://localhost:8080/index">HOME</a>
         </div>
     </div>
 </body>

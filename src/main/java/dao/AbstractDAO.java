@@ -48,10 +48,12 @@ public abstract class AbstractDAO<T> {
         } catch (SQLException e) {
            throw new DAOException(e);
         } catch (DAOConnetctionException e) {
-            e.printStackTrace();
+            throw new DAOException(e);
         } finally {
             try {
-                connection.close();
+                if(connection!=null){
+                    connection.close();
+                }
             } catch (SQLException e) {
                 throw new DAOException(e);
             }
