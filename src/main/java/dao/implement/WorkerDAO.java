@@ -1,10 +1,9 @@
-package dao.daos;
+package dao.implement;
 
 import dao.AbstractDAO;
 import dao.exception.DAOException;
 import entity.Worker;
 
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;

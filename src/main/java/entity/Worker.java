@@ -5,21 +5,27 @@ package entity;
  */
 public class Worker {
     private Integer id;
-    private String firstname;
-    private String lastname;
+    private String firstName="bla";
+    private String lastName;
     private String position;
     private String phoneNumber;
     private String numberOfPasport;
 
-    public Worker() {
+    public Worker(){
+
+    }
+
+    public Worker(String firstName,String lastName) {
+        this.firstName=firstName;
+        this.lastName=lastName;
     }
 
     public String getFirstname() {
-        return firstname;
+        return firstName;
     }
 
     public void setFirstname(String firstname) {
-        this.firstname = firstname;
+        this.firstName = firstname;
     }
 
 
@@ -32,11 +38,11 @@ public class Worker {
     }
 
     public String getLastname() {
-        return lastname;
+        return lastName;
     }
 
     public void setLastname(String lastname) {
-        this.lastname = lastname;
+        this.lastName = lastname;
     }
 
     public String getNumberOfPasport() {
