@@ -1,9 +1,11 @@
 package entity;
 
+import dao.implementation.Identified;
+
 /**
  * Created by Иван on 26.03.2016.
  */
-public class EntryToService {
+public class EntryToService implements Identified<Integer> {
     private int id;
     private String date;
     private String mark;
@@ -13,7 +15,7 @@ public class EntryToService {
     public EntryToService() {
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

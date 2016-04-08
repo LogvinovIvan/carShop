@@ -1,7 +1,7 @@
 package dao.factory;
 
-import dao.implement.CarDAO;
-import dao.implement.WorkerDAO;
+import dao.implementation.CarDAO;
+import dao.implementation.WorkerDAO;
 
 
 /**

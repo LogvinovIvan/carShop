@@ -1,17 +1,28 @@
 package entity;
 
+import dao.implementation.Identified;
+
 /**
  * Created by Иван on 26.03.2016.
  */
-public class TestDrive {
+public class TestDrive implements Identified<Integer> {
     private int idTestDrive;
     private String mark;
     private String model;
     private String date;
+    private int idClient;
 
     public TestDrive() {
     }
 
+
+    public int getIdClient() {
+        return idClient;
+    }
+
+    public void setIdClient(int idClient) {
+        this.idClient = idClient;
+    }
     public int getIdTestDrive() {
         return idTestDrive;
     }
@@ -42,5 +53,10 @@ public class TestDrive {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    @Override
+    public Integer getId() {
+        return idTestDrive;
     }
 }

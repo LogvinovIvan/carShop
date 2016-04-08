@@ -1,15 +1,27 @@
 package entity;
 
+import dao.implementation.Identified;
+
 /**
  * Created by Иван on 26.03.2016.
  */
-public class SparePart {
+public class SparePart implements Identified<Integer> {
     private int numberSparePart;
     private String name;
     private String mark;
     private String model;
+    private String articul;
 
     public SparePart() {
+    }
+
+
+    public String getArticul() {
+        return articul;
+    }
+
+    public void setArticul(String articul) {
+        this.articul = articul;
     }
 
     public int getNumberSparePart() {
@@ -42,5 +54,10 @@ public class SparePart {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public Integer getId() {
+        return numberSparePart;
     }
 }
