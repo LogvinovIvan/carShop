@@ -11,6 +11,15 @@ public class EntryToService implements Identified<Integer> {
     private String mark;
     private String model;
     private int mileage;
+    private Integer vin;
+
+    public Integer getVin() {
+        return vin;
+    }
+
+    public void setVin(Integer vin) {
+        this.vin = vin;
+    }
 
     public EntryToService() {
     }
