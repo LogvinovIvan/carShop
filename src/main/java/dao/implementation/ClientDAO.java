@@ -34,7 +34,7 @@ public class ClientDAO extends AbstractDAO<Client,Integer> {
 
     @Override
     public String getUpdateQuery() {
-        return "UPDATE mydb.client SET firstName = ? lastName = ? phoneNumber = ?   WHERE idClient= ?;";
+        return "UPDATE mydb.client SET firstName = ?, lastName = ?, phoneNumber = ?   WHERE idClient= ?;";
 
     }
 

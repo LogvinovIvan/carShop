@@ -33,7 +33,7 @@ public class TestDriveDAO extends AbstractDAO<TestDrive, Integer> {
 
     @Override
     public String getUpdateQuery() {
-        return "UPDATE mydb.testdrive SET idClient= ? date = ? modelOfCar = ? createrOfCar = ?  WHERE idTestDrive= ?;";
+        return "UPDATE mydb.testdrive SET idClient= ?, date = ?, modelOfCar = ?, createrOfCar = ?  WHERE idTestDrive= ?;";
     }
 
     @Override

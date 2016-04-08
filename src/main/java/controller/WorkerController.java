@@ -26,7 +26,6 @@ public class WorkerController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         WorkerDAO dao = DAOFactory.getWorkerDAO();
         try {
-            //List<Worker> workerList = dao.findAll();
             Worker worker = new Worker();
             worker.setFirstname("a");
             worker.setLastname("bb");

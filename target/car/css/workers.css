@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.head {
+    background-color: black;
+    color: #ffffff;
+}
+
+.table tr:nth-child(2n) {
+    background-color: #f1f1f1;
+}
+
+.body tr {
+    border-bottom: 1px solid #dddddd;
+    text-align: center;
+}
