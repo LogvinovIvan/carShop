@@ -1,0 +1,32 @@
+html, body{
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    height: 100%;
+    width: 100%;
+    background-color: #737272;
+}
+
+.error {
+    background-image: url("../img/404-error.jpg");
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    width: 69%;
+    height: 100%;
+    position: relative;
+}
+
+.home {
+    position: absolute;
+    width: 20%;
+    height: 15%;
+    left: 50%;
+    margin-left: -10%;
+    bottom: 30px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 48px;
+}
