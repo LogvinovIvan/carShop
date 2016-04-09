@@ -1,19 +1,30 @@
 package entity;
 
+import dao.implementation.Identified;
+
 /**
  * Created by Иван on 26.03.2016.
  */
-public class EntryToService {
+public class EntryToService implements Identified<Integer> {
     private int id;
     private String date;
     private String mark;
     private String model;
     private int mileage;
+    private Integer vin;
+
+    public Integer getVin() {
+        return vin;
+    }
+
+    public void setVin(Integer vin) {
+        this.vin = vin;
+    }
 
     public EntryToService() {
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

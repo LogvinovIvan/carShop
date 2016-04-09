@@ -11,21 +11,30 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="../css/workers.css">
 </head>
 <body>
 
-<table>
-    <thead>
+<table class="table">
+    <thead class="head">
     <tr>
-        <th>Login</th>
-        <th>Password</th>
+        <th>ID</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>position</th>
+        <th>phone number</th>
+        <th>number of passport</th>
     </tr>
     </thead>
-    <tbody>
+    <tbody class="body">
     <c:forEach  var="worker" items="${workerList}">
         <tr>
-            <td>${worker.firstname}</td>
+            <td>${worker.id}</td>
+            <td><c:out value="${worker.firstname}" /></td>
             <td><c:out value="${worker.lastname}" /></td>
+            <td><c:out value="${worker.position}" /></td>
+            <td><c:out value="${worker.phoneNumber}" /></td>
+            <td><c:out value="${worker.numberOfPasport}" /></td>
         </tr>
     </c:forEach>
 

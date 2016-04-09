@@ -1,9 +1,11 @@
 package entity;
 
+import dao.implementation.Identified;
+
 /**
  * Created by Иван on 25.03.2016.
  */
-public class Worker {
+public class Worker implements Identified<Integer> {
     private Integer id;
     private String firstName="bla";
     private String lastName;

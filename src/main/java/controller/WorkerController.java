@@ -1,6 +1,7 @@
 package controller;
 
-import dao.implement.WorkerDAO;
+import dao.exception.PersistException;
+import dao.implementation.WorkerDAO;
 import dao.exception.DAOException;
 import dao.factory.DAOFactory;
 import entity.Worker;
@@ -25,12 +26,20 @@ public class WorkerController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         WorkerDAO dao = DAOFactory.getWorkerDAO();
         try {
-            List<Worker> workerList = dao.getAll();
-            request.setAttribute("workerList", workerList);
+            Worker worker = new Worker();
+            worker.setFirstname("a");
+            worker.setLastname("bb");
+            worker.setPhoneNumber("123654");
+            worker.setNumberOfPasport("123654");
+            worker.setPosition("qww");
+            worker.setId(2);
+
+            dao.update(worker);
+            //request.setAttribute("workerList", workerList);
             RequestDispatcher view = request.getRequestDispatcher("/worker.jsp");
             view.forward(request, response);
 
-       } catch (DAOException e) {
+       } catch (PersistException| DAOException e) {
             RequestDispatcher view = request.getRequestDispatcher("/error.jsp");
             view.forward(request,response);
         }

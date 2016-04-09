@@ -1,16 +1,21 @@
 package entity;
 
+import dao.implementation.Identified;
+
 /**
  * Created by Иван on 26.03.2016.
  */
-public class Client {
+public class Client implements Identified<Integer> {
     private int id;
+
     private String firstName;
     private String lastName;
     private String phoneNumber;
 
     public Client() {
     }
+
+
 
     public String getFirstName() {
         return firstName;
@@ -21,7 +26,7 @@ public class Client {
     }
 
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

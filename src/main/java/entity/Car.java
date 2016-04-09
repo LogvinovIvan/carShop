@@ -1,10 +1,12 @@
 package entity;
 
+import dao.implementation.Identified;
+
 /**
  * Created by Иван on 26.03.2016.
  */
-public class Car {
-    private int vinCode;
+public class Car implements Identified<Integer> {
+    private Integer vinCode;
     private String mark;
     private String model;
     private String color;
@@ -12,11 +14,11 @@ public class Car {
     public Car(){
     }
 
-    public int getVinCode() {
+    public Integer getVinCode() {
         return vinCode;
     }
 
-    public void setVinCode(int vinCode) {
+    public void setVinCode(Integer vinCode) {
         this.vinCode = vinCode;
     }
 
@@ -42,5 +44,10 @@ public class Car {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    @Override
+    public Integer getId() {
+        return vinCode;
     }
 }

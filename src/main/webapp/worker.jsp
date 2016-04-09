@@ -22,20 +22,12 @@
         <th>Firstname</th>
         <th>Lastname</th>
         <th>position</th>
-        <th>phone namber</th>
+        <th>phone number</th>
         <th>number of passport</th>
     </tr>
     </thead>
     <tbody class="body">
     <c:forEach  var="worker" items="${workerList}">
-        <tr>
-            <td>${worker.id}</td>
-            <td><c:out value="${worker.firstname}" /></td>
-            <td><c:out value="${worker.lastname}" /></td>
-            <td><c:out value="${worker.position}" /></td>
-            <td><c:out value="${worker.phoneNumber}" /></td>
-            <td><c:out value="${worker.numberOfPasport}" /></td>
-        </tr>
         <tr>
             <td>${worker.id}</td>
             <td><c:out value="${worker.firstname}" /></td>
