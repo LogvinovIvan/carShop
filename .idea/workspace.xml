@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="49637f65-85ff-4bc2-aef8-4f6a77e6a030" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/css/workers.css" afterPath="$PROJECT_DIR$/src/main/webapp/css/workers.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/worker.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/worker.jsp" />
-    </list>
+    <list default="true" id="49637f65-85ff-4bc2-aef8-4f6a77e6a030" name="Default" comment="" />
     <ignored path="carShop.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -933,7 +930,7 @@
       <workItem from="1459418479904" duration="6717000" />
       <workItem from="1459442830511" duration="14000" />
       <workItem from="1460154634478" duration="2022000" />
-      <workItem from="1460181207178" duration="575000" />
+      <workItem from="1460181207178" duration="1251000" />
     </task>
     <task id="LOCAL-00001" summary="Html forms">
       <created>1459423401296</created>
@@ -953,10 +950,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10929000" />
+    <option name="totallyTimeSpent" value="11605000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="0" width="1368" height="741" extended-state="0" />
+    <frame x="-1" y="0" width="1368" height="741" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
