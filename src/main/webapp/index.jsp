@@ -1,6 +1,1 @@
-<html>
-<body>
-<jsp:forward page="worker.jsp"/>
-
-</body>
-</html>
+<html><body><jsp:forward page="worker.jsp"/></body></html>
