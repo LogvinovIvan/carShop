@@ -15,7 +15,11 @@ public class Client implements Identified<Integer> {
     public Client() {
     }
 
-
+    public Client(String firstName,String lastName,String phoneNumber) {
+        this.firstName=firstName;
+        this.lastName=lastName;
+        this.phoneNumber=phoneNumber;
+    }
 
     public String getFirstName() {
         return firstName;

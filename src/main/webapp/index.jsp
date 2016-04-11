@@ -1,6 +1,6 @@
 <html>
 <body>
-<jsp:forward page="worker.jsp"/>
+<jsp:forward page="worker.jsp" />
 
 </body>
 </html>

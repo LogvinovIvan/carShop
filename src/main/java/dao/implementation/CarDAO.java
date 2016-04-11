@@ -73,8 +73,8 @@ public class CarDAO extends AbstractDAO<Car,Integer> {
                 while (rs.next()) {
                     Car car = new Car();
                     car.setVinCode(rs.getInt("VinCode"));
-                    car.setMark(rs.getString("Mark"));
-                    car.setModel(rs.getString("model"));
+                    car.setMark(rs.getString("createrOfCar"));
+                    car.setModel(rs.getString("modelOfCar"));
                     car.setColor(rs.getString("color"));
                     cars.add(car);
                 }

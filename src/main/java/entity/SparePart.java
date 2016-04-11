@@ -15,6 +15,12 @@ public class SparePart implements Identified<Integer> {
     public SparePart() {
     }
 
+    public SparePart(String name,String mark,String model,String articul){
+        this.name=name;
+        this.mark=mark;
+        this.model=model;
+        this.articul=articul;
+    }
 
     public String getArticul() {
         return articul;

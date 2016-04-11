@@ -15,6 +15,11 @@ public class TestDrive implements Identified<Integer> {
     public TestDrive() {
     }
 
+    public TestDrive(String mark,String model,String date){
+        this.mark=mark;
+        this.model=model;
+        this.date=date;
+    }
 
     public int getIdClient() {
         return idClient;

@@ -17,6 +17,13 @@ public class EntryToService implements Identified<Integer> {
         return vin;
     }
 
+    public EntryToService(String date,String mark,String model,int mileage){
+        this.date=date;
+        this.mark=mark;
+        this.model=model;
+        this.mileage=mileage;
+    }
+
     public void setVin(Integer vin) {
         this.vin = vin;
     }

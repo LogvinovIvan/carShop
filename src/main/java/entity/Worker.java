@@ -17,9 +17,12 @@ public class Worker implements Identified<Integer> {
 
     }
 
-    public Worker(String firstName,String lastName) {
+    public Worker(String firstName,String lastName,String position,String phoneNumber,String numberOfPasport) {
         this.firstName=firstName;
         this.lastName=lastName;
+        this.position=position;
+        this.phoneNumber=phoneNumber;
+        this.numberOfPasport=numberOfPasport;
     }
 
     public String getFirstname() {

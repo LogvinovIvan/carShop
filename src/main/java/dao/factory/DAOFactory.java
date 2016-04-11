@@ -12,7 +12,7 @@ import java.util.HashMap;
 public class DAOFactory {
 
     private HashMap<String, AbstractDAO> daoHashMap = new HashMap<>();
-    
+
     public DAOFactory(){
         daoHashMap.put("car",new CarDAO());
         daoHashMap.put("client", new ClientDAO());

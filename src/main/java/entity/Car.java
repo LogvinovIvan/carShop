@@ -11,6 +11,13 @@ public class Car implements Identified<Integer> {
     private String model;
     private String color;
 
+    public Car(int vinCode,String mark,String model,String color){
+        this.vinCode=vinCode;
+        this.mark=mark;
+        this.model=model;
+        this.color=color;
+    }
+
     public Car(){
     }
 

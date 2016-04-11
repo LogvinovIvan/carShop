@@ -15,34 +15,86 @@
 </head>
 <body>
 
-<table class="table">
-    <thead class="head">
-    <tr>
-        <th>ID</th>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>position</th>
-        <th>phone number</th>
-        <th>number of passport</th>
-    </tr>
-    </thead>
-    <tbody class="body">
-    <c:forEach  var="worker" items="${workerList}">
-        <tr>
-            <td>${worker.id}</td>
-            <td><c:out value="${worker.firstname}" /></td>
-            <td><c:out value="${worker.lastname}" /></td>
-            <td><c:out value="${worker.position}" /></td>
-            <td><c:out value="${worker.phoneNumber}" /></td>
-            <td><c:out value="${worker.numberOfPasport}" /></td>
-        </tr>
-    </c:forEach>
+<form class="form" action="workers" method="post" name="form">
+    <input type="hidden" name="request" value="add_worker"/>
+    <ul>
+        <li><h2>Add worker</h2></li>
+        <li>
+            <label for="name">ID:</label>
+            <input type="text" name="id" placeholder="1" required/>
+        </li>
+        <li>
+            <label for="firstname">Firstname:</label>
+            <input type="text" name="firstName" placeholder="Ivan" required/>
+        <li>
+            <label for="lastname">Lastname:</label>
+            <input type="text" name="lastName" placeholder="Ivanov" required/>
+        </li>
+        <li>
+            <label for="position">position:</label>
+            <input type="text" name="position" required/>
+        </li>
+        <li>
+            <label for="phone-namber">phone namber:</label>
+            <input type="text" name="phoneNumber" required/>
+        </li>
+        <li>
+            <label for="number-of-passport">number of passport:</label>
+            <input type="text" name="numberOfPassport" required>
+        </li>
+        <li>
+            <button class="submit" type="submit">Submit Form</button>
+        </li>
+    </ul>
+</form>
 
 
-    </tbody>
+<form action="workers" class="form" method="post" name="form">
+    <input type="hidden" name="request" value="delete_worker"/>
+    <ul>
+        <li><h2>Delete worker</h2></li>
+        <li>
+            <input type="text" name="id" placeholder="deleteId" required>
+            <button class="submit" type="submit">Delete</button>
+        </li>
+    </ul>
+</form>
 
-</table>
+<form class="form" action="workers" method="post" name="form">
+    <input type="hidden" name="request" value="update_worker"/>
+    <ul>
+        <li><h2>Update worker</h2></li>
+        <li>
+            <label for="name">ID:</label>
+            <input type="text" name="id" placeholder="1" required/>
+        </li>
+        <li>
+            <label for="firstname">Firstname:</label>
+            <input type="text" name="firstName" placeholder="Ivan" required/>
+        <li>
+            <label for="lastname">Lastname:</label>
+            <input type="text" name="lastName" placeholder="Ivanov" required/>
+        </li>
+        <li>
+            <label for="position">position:</label>
+            <input type="text" name="position" required/>
+        </li>
+        <li>
+            <label for="phone-namber">phone namber:</label>
+            <input type="text" name="phoneNumber" required/>
+        </li>
+        <li>
+            <label for="number-of-passport">number of passport:</label>
+            <input type="text" name="numberOfPassport" required>
+        </li>
+        <li>
+            <button class="submit" type="submit">Submit Form</button>
+        </li>
+    </ul>
+</form>
 
-
+<form class="delete" action="workers" method="get">
+    <button type="submit">View all</button>
+</form>
 </body>
 </html>
