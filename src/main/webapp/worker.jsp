@@ -43,7 +43,7 @@
             <input type="text" name="numberOfPassport" required>
         </li>
         <li>
-            <button class="submit" type="submit">Submit Form</button>
+            <button class="submit" type="submit">add Form</button>
         </li>
     </ul>
 </form>
@@ -88,7 +88,7 @@
             <input type="text" name="numberOfPassport" required>
         </li>
         <li>
-            <button class="submit" type="submit">Submit Form</button>
+            <button class="submit" type="submit">Update Form</button>
         </li>
     </ul>
 </form>

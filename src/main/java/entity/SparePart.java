@@ -11,15 +11,21 @@ public class SparePart implements Identified<Integer> {
     private String mark;
     private String model;
     private String articul;
+    private int idmechanic;
+    private int idStorekeeper;
+
 
     public SparePart() {
     }
 
-    public SparePart(String name,String mark,String model,String articul){
+    public SparePart(String name,String mark,String model,String articul, int idMechanic, int idStorekeeper){
         this.name=name;
         this.mark=mark;
         this.model=model;
         this.articul=articul;
+        this.idmechanic = idMechanic;
+        this.idStorekeeper = idStorekeeper;
+
     }
 
     public String getArticul() {

@@ -29,7 +29,7 @@ public class SparePartDAO extends AbstractDAO<SparePart,Integer> {
 
     @Override
     public String getSelectQuery() {
-        return null;
+        return "SELECT numberSparePart, name, createrOfCar, modelOfCar articul FROM mydb.sparepart WHERE numberSparePart = ?;";
     }
 
     @Override
@@ -43,7 +43,17 @@ public class SparePartDAO extends AbstractDAO<SparePart,Integer> {
     }
 
     @Override
-    protected void prepareStatementForInsert(PreparedStatement statement, SparePart object) throws PersistException {
+    public boolean prepareStatementForFindByPK(PreparedStatement statement, Integer key) throws PersistException {
+        try {
+            statement.setInt(1,key);
+        } catch (SQLException e) {
+            throw new PersistException(e);
+        }
+        return true;
+    }
+
+    @Override
+    protected boolean prepareStatementForInsert(PreparedStatement statement, SparePart object) throws PersistException {
         try {
             statement.setInt(1, object.getNumberSparePart());
             statement.setString(2, object.getName());
@@ -53,10 +63,11 @@ public class SparePartDAO extends AbstractDAO<SparePart,Integer> {
         } catch (Exception e) {
             throw new PersistException(e);
         }
+        return true;
     }
 
     @Override
-    protected void prepareStatementForUpdate(PreparedStatement statement, SparePart object) throws PersistException {
+    protected boolean prepareStatementForUpdate(PreparedStatement statement, SparePart object) throws PersistException {
         try {
             statement.setInt(5, object.getNumberSparePart());
             statement.setString(1, object.getName());
@@ -66,6 +77,8 @@ public class SparePartDAO extends AbstractDAO<SparePart,Integer> {
         } catch (Exception e) {
             throw new PersistException(e);
         }
+
+        return true;
     }
 
     @Override

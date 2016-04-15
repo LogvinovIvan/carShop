@@ -21,7 +21,7 @@ public abstract class AbstractDAO<T extends Identified<PK>, PK extends Serializa
     private String URL = "jdbc:mysql://localhost:3306/mydb";
 
 
-    protected Connection getConnection() throws DAOConnetctionException {
+    public Connection getConnection() throws DAOConnetctionException {
         Driver driver = null;
         try {
             Class.forName(DRIVER);
@@ -40,13 +40,16 @@ public abstract class AbstractDAO<T extends Identified<PK>, PK extends Serializa
 
     public abstract String getSelectQuery();
 
+
     public abstract String getUpdateQuery();
 
     public abstract String getDeleteQuery();
 
-    protected abstract void prepareStatementForInsert(PreparedStatement statement, T object) throws PersistException;
+    public abstract boolean prepareStatementForFindByPK(PreparedStatement statement, PK pk) throws PersistException;
 
-    protected abstract void prepareStatementForUpdate(PreparedStatement statement, T object) throws PersistException;
+    protected abstract boolean prepareStatementForInsert(PreparedStatement statement, T object) throws PersistException;
+
+    protected abstract boolean prepareStatementForUpdate(PreparedStatement statement, T object) throws PersistException;
 
     protected abstract List<T> parseResultSet(ResultSet rs) throws DAOException;
 
@@ -120,12 +123,13 @@ public abstract class AbstractDAO<T extends Identified<PK>, PK extends Serializa
         return list;
     }
 
-    public T findByPK(int key) throws PersistException {
+    public T findByPK(PK key) throws PersistException {
         List<T> list;
         String sql = getSelectQuery();
-        sql += " = ?";
-        try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setInt(1, key);
+
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+            prepareStatementForFindByPK(statement, key);
             ResultSet rs = statement.executeQuery();
             list = parseResultSet(rs);
         } catch (Exception e) {
@@ -174,7 +178,7 @@ public abstract class AbstractDAO<T extends Identified<PK>, PK extends Serializa
                 }
                 int count = statement.executeUpdate();
                 if (count != 1) {
-                    throw new PersistException("On delete modify more then 1 record: " + count);
+                    throw new PersistException("On delete modify more then 1 record: ");
                 }
                 statement.close();
             } catch (Exception e) {

@@ -28,8 +28,9 @@ public class UserDAO extends AbstractDAO<User, String> {
 
     @Override
     public String getSelectQuery() {
-        return null;
+        return "SELECT login, password, worker_idWorker From mydb.user WHERE login = ?;";
     }
+
 
     @Override
     public String getUpdateQuery() {
@@ -42,7 +43,17 @@ public class UserDAO extends AbstractDAO<User, String> {
     }
 
     @Override
-    protected void prepareStatementForInsert(PreparedStatement statement, User object) throws PersistException {
+    public boolean prepareStatementForFindByPK(PreparedStatement statement, String key) throws PersistException {
+        try {
+            statement.setString(1,key);
+        } catch (SQLException e) {
+            throw new PersistException(e);
+        }
+        return true;
+    }
+
+    @Override
+    protected boolean prepareStatementForInsert(PreparedStatement statement, User object) throws PersistException {
         try {
             statement.setString(1, object.getLogin());
             statement.setString(2, object.getPassword());
@@ -50,17 +61,19 @@ public class UserDAO extends AbstractDAO<User, String> {
         } catch (Exception e) {
             throw new PersistException(e);
         }
+        return true;
     }
 
     @Override
-    protected void prepareStatementForUpdate(PreparedStatement statement, User object) throws PersistException {
+    protected boolean prepareStatementForUpdate(PreparedStatement statement, User object) throws PersistException {
         try {
             statement.setString(1, object.getPassword());
             statement.setInt(2,object.getIdWorker());
             statement.setString(3, object.getLogin());
-        } catch (Exception e) {
+        } catch (SQLException e) {
             throw new PersistException(e);
         }
+        return true;
     }
 
     @Override
@@ -74,7 +87,7 @@ public class UserDAO extends AbstractDAO<User, String> {
                 user.setIdWorker(rs.getInt("worker_idWorker"));
                 users.add(user);
             }
-        } catch (SQLException e) {
+        } catch (Exception e) {
             throw new DAOException(e);
         }
         return users;

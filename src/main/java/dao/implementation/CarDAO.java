@@ -28,7 +28,7 @@ public class CarDAO extends AbstractDAO<Car,Integer> {
 
     @Override
     public String getSelectQuery() {
-        return null;
+        return "SELECT vinCode, createrOfCar, modelOfCar, color FROM mydb.car WHERE vinCode = ?;";
     }
 
     @Override
@@ -41,7 +41,17 @@ public class CarDAO extends AbstractDAO<Car,Integer> {
         return "DELETE FROM mydb.car WHERE vinCode = ?;";    }
 
     @Override
-    protected void prepareStatementForInsert(PreparedStatement statement, Car object) throws PersistException {
+    public boolean prepareStatementForFindByPK(PreparedStatement statement, Integer integer) throws PersistException {
+        try {
+            statement.setInt(1,1);
+        } catch (SQLException e) {
+            throw new PersistException(e);
+        }
+        return true;
+    }
+
+    @Override
+    protected boolean prepareStatementForInsert(PreparedStatement statement, Car object) throws PersistException {
         try {
             statement.setInt(1,object.getVinCode());
             statement.setString(2,object.getMark());
@@ -51,10 +61,11 @@ public class CarDAO extends AbstractDAO<Car,Integer> {
         catch (Exception e){
             throw new PersistException(e);
         }
+        return true;
     }
 
     @Override
-    protected void prepareStatementForUpdate(PreparedStatement statement, Car object) throws PersistException {
+    protected boolean prepareStatementForUpdate(PreparedStatement statement, Car object) throws PersistException {
         try {
             statement.setString(1,object.getMark());
             statement.setString(2, object.getModel());
@@ -64,6 +75,7 @@ public class CarDAO extends AbstractDAO<Car,Integer> {
         catch (Exception e){
             throw new PersistException(e);
         }
+        return true;
     }
 
 

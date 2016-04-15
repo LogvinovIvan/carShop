@@ -42,7 +42,17 @@ public class EntryToServiceDAO extends AbstractDAO<EntryToService,Integer> {
     }
 
     @Override
-    protected void prepareStatementForInsert(PreparedStatement statement, EntryToService object) throws PersistException {
+    public boolean prepareStatementForFindByPK(PreparedStatement statement, Integer key) throws PersistException {
+        try {
+            statement.setInt(1,key);
+        } catch (SQLException e) {
+            throw new PersistException(e);
+        }
+        return true;
+    }
+
+    @Override
+    protected boolean prepareStatementForInsert(PreparedStatement statement, EntryToService object) throws PersistException {
         try {
             statement.setInt(1, object.getVin());
             statement.setString(2, object.getDate());
@@ -52,10 +62,11 @@ public class EntryToServiceDAO extends AbstractDAO<EntryToService,Integer> {
         } catch (Exception e) {
             throw new PersistException(e);
         }
+        return true;
     }
 
     @Override
-    protected void prepareStatementForUpdate(PreparedStatement statement, EntryToService object) throws PersistException {
+    protected boolean prepareStatementForUpdate(PreparedStatement statement, EntryToService object) throws PersistException {
         try {
             statement.setInt(1, object.getVin());
             statement.setString(2, object.getDate());
@@ -66,6 +77,7 @@ public class EntryToServiceDAO extends AbstractDAO<EntryToService,Integer> {
         } catch (Exception e) {
             throw new PersistException(e);
         }
+        return true;
     }
 
     @Override

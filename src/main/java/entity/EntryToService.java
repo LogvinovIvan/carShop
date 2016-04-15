@@ -17,11 +17,12 @@ public class EntryToService implements Identified<Integer> {
         return vin;
     }
 
-    public EntryToService(String date,String mark,String model,int mileage){
+    public EntryToService(String date,String mark,String model,int mileage, int vin){
         this.date=date;
         this.mark=mark;
         this.model=model;
         this.mileage=mileage;
+        this.vin = vin;
     }
 
     public void setVin(Integer vin) {

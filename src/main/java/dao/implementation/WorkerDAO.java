@@ -29,7 +29,7 @@ public class WorkerDAO extends AbstractDAO<Worker, Integer> {
 
     @Override
     public String getSelectQuery() {
-         return "SELECT * FROM mydb.worker WHERE idWorker =";
+         return "SELECT * FROM mydb.worker WHERE idWorker = ?";
     }
 
     @Override
@@ -43,7 +43,17 @@ public class WorkerDAO extends AbstractDAO<Worker, Integer> {
     }
 
     @Override
-    protected void prepareStatementForInsert(PreparedStatement statement, Worker object) throws PersistException {
+    public boolean prepareStatementForFindByPK(PreparedStatement statement, Integer key) throws PersistException {
+        try {
+            statement.setInt(1,key);
+        } catch (SQLException e) {
+            throw new PersistException(e);
+        }
+        return true;
+    }
+
+    @Override
+    protected boolean prepareStatementForInsert(PreparedStatement statement, Worker object) throws PersistException {
         try {
             statement.setString(1, object.getFirstname());
             statement.setString(2, object.getLastname());
@@ -53,10 +63,11 @@ public class WorkerDAO extends AbstractDAO<Worker, Integer> {
         } catch (Exception e) {
             throw new PersistException(e);
         }
+        return true;
     }
 
     @Override
-    protected void prepareStatementForUpdate(PreparedStatement statement, Worker object) throws PersistException {
+    protected boolean prepareStatementForUpdate(PreparedStatement statement, Worker object) throws PersistException {
         try {
             statement.setString(1, object.getFirstname());
             statement.setString(2, object.getLastname());
@@ -67,6 +78,7 @@ public class WorkerDAO extends AbstractDAO<Worker, Integer> {
         } catch (Exception e) {
             throw new PersistException(e);
         }
+        return true;
     }
 
     protected List parseResultSet(ResultSet rs) throws DAOException  {

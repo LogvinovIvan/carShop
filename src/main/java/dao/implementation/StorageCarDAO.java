@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by Иван on 08.04.2016.
  */
-public class StorageCarDAO extends AbstractDAO<StorageCar , Integer> {
+public class StorageCarDAO extends AbstractDAO<StorageCar, Integer> {
     @Override
     public String getSelectALLQuery() {
         return "SELECT * FROM mydb.storagecar;";
@@ -28,7 +28,7 @@ public class StorageCarDAO extends AbstractDAO<StorageCar , Integer> {
 
     @Override
     public String getSelectQuery() {
-        return null;
+        return "SELECT vinCode, status FROM mydb.storagecar WHERE vinCode = ?;";
     }
 
     @Override
@@ -42,28 +42,37 @@ public class StorageCarDAO extends AbstractDAO<StorageCar , Integer> {
     }
 
     @Override
-    protected void prepareStatementForInsert(PreparedStatement statement, StorageCar object) throws PersistException {
+    public boolean prepareStatementForFindByPK(PreparedStatement statement, Integer key) throws PersistException {
+        try {
+            statement.setInt(1,key);
+        } catch (SQLException e) {
+            throw new PersistException(e);
+        }
+        return true;
+    }
+
+    @Override
+    protected boolean prepareStatementForInsert(PreparedStatement statement, StorageCar object) throws PersistException {
         try {
             statement.setInt(1, object.getVin());
             statement.setString(2, object.getStatus());
         } catch (Exception e) {
             throw new PersistException(e);
         }
+
+        return true;
     }
 
     @Override
-    protected void prepareStatementForUpdate(PreparedStatement statement, StorageCar object) throws PersistException {
+    protected boolean prepareStatementForUpdate(PreparedStatement statement, StorageCar object) throws PersistException {
         try {
             statement.setInt(2, object.getVin());
             statement.setString(1, object.getStatus());
         } catch (Exception e) {
             throw new PersistException(e);
         }
+        return true;
     }
-
-
-
-
 
 
     @Override
@@ -76,7 +85,7 @@ public class StorageCarDAO extends AbstractDAO<StorageCar , Integer> {
                 storageCar.setStatus(rs.getString("status"));
                 storageCars.add(storageCar);
             }
-        } catch (SQLException e) {
+        } catch (Exception e) {
             throw new DAOException(e);
         }
         return storageCars;

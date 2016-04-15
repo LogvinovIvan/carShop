@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>Car</title>
+    <link rel="stylesheet" href="../css/workers.css">
 </head>
 <body>
 <form class="form" action="cars" method="post" name="form">

@@ -29,7 +29,7 @@ public class ClientDAO extends AbstractDAO<Client,Integer> {
 
     @Override
     public String getSelectQuery() {
-        return null;
+        return "SELECT idClient, firstName, lastName, phoneNumber FROM mydb.client WHERE idClient = ?;";
     }
 
     @Override
@@ -44,7 +44,17 @@ public class ClientDAO extends AbstractDAO<Client,Integer> {
     }
 
     @Override
-    protected void prepareStatementForInsert(PreparedStatement statement, Client object) throws PersistException {
+    public boolean prepareStatementForFindByPK(PreparedStatement statement, Integer key) throws PersistException {
+        try {
+            statement.setInt(1,key);
+        } catch (SQLException e) {
+            throw new PersistException(e);
+        }
+        return true;
+    }
+
+    @Override
+    protected boolean prepareStatementForInsert(PreparedStatement statement, Client object) throws PersistException {
         try {
             statement.setString(1, object.getFirstName());
             statement.setString(2, object.getLastName());
@@ -52,10 +62,11 @@ public class ClientDAO extends AbstractDAO<Client,Integer> {
         } catch (Exception e) {
             throw new PersistException(e);
         }
+        return true;
     }
 
     @Override
-    protected void prepareStatementForUpdate(PreparedStatement statement, Client object) throws PersistException {
+    protected boolean prepareStatementForUpdate(PreparedStatement statement, Client object) throws PersistException {
         try {
             statement.setString(1, object.getFirstName());
             statement.setString(2, object.getLastName());
@@ -64,6 +75,7 @@ public class ClientDAO extends AbstractDAO<Client,Integer> {
         } catch (Exception e) {
             throw new PersistException(e);
         }
+        return true;
     }
 
 

@@ -10,6 +10,12 @@ public class StorageCar implements Identified<Integer> {
     private Integer vin;
 
     public StorageCar(){
+
+    }
+
+    public StorageCar(int vin, String status){
+        this.vin = vin;
+        this.status = status;
     }
 
     public String getStatus() {

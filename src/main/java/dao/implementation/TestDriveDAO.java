@@ -28,7 +28,7 @@ public class TestDriveDAO extends AbstractDAO<TestDrive, Integer> {
 
     @Override
     public String getSelectQuery() {
-        return null;
+        return "SELECT idTestDrive, idClient, date, modelOfCar, createrOfCar WHERE idTestDrive = ?;";
     }
 
     @Override
@@ -42,7 +42,17 @@ public class TestDriveDAO extends AbstractDAO<TestDrive, Integer> {
     }
 
     @Override
-    protected void prepareStatementForInsert(PreparedStatement statement, TestDrive object) throws PersistException {
+    public boolean prepareStatementForFindByPK(PreparedStatement statement, Integer key) throws PersistException {
+        try {
+            statement.setInt(1,key);
+        } catch (SQLException e) {
+            throw new PersistException(e);
+        }
+        return true;
+    }
+
+    @Override
+    protected boolean prepareStatementForInsert(PreparedStatement statement, TestDrive object) throws PersistException {
         try {
             statement.setInt(1, object.getIdClient());
             statement.setString(2, object.getDate());
@@ -51,10 +61,11 @@ public class TestDriveDAO extends AbstractDAO<TestDrive, Integer> {
         } catch (Exception e) {
             throw new PersistException(e);
         }
+        return true;
     }
 
     @Override
-    protected void prepareStatementForUpdate(PreparedStatement statement, TestDrive object) throws PersistException {
+    protected boolean prepareStatementForUpdate(PreparedStatement statement, TestDrive object) throws PersistException {
         try {
             statement.setInt(1, object.getIdClient());
             statement.setString(2, object.getDate());
@@ -64,6 +75,7 @@ public class TestDriveDAO extends AbstractDAO<TestDrive, Integer> {
         } catch (Exception e) {
             throw new PersistException(e);
         }
+        return true;
     }
 
 
@@ -77,7 +89,6 @@ public class TestDriveDAO extends AbstractDAO<TestDrive, Integer> {
                 testDrive.setDate(rs.getDate("date").toString());
                 testDrive.setModel(rs.getString("modelOfCar"));
                 testDrive.setMark(rs.getString("createrOfCar"));
-                //testDrive.setNumberOfPasport(rs.getString("numberOfPasrport"));
                 testDrives.add(testDrive);
             }
         } catch (SQLException e) {
