@@ -17,10 +17,10 @@ import java.util.List;
 public class RequestToSparePartDAO extends AbstractDAO<RequestToSparePart, Integer> {
     private final String SELECT_ALL_QUERY = "SELECT * FROM mydb.requesttosparepart";
     private final String CREATE_QUERY = "INSERT INTO mydb.requesttosparepart (idMechanic, idStorekeeper, date, status, createrOfCar, modelOfCar) " +
-            "VALUES(?,?,?,?,?,?)";
-    private final String SELECT_QUERY = "SELECT * FROM medb.requesttosparepart WHERE idRequestToSparePart = ?";
-    private final String UPDATE_QUERY = "UPDATE mydb.requesttosparepart SET idMechanic = ?, idStorekeeper = ?, date = ?, status = ?" +
-            "createrOfCar = ?, modelOfCar = ? WHERE idRequestoSparePart = ?;";
+            "VALUES(?,?,?,?,?,?);";
+    private final String SELECT_QUERY = "SELECT * FROM mydb.requesttosparepart WHERE idRequestToSparePart = ";
+    private final String UPDATE_QUERY = "UPDATE mydb.requesttosparepart SET idMechanic = ?, idStorekeeper = ?, date = ?, status = ?," +
+            "createrOfCar = ?, modelOfCar = ? WHERE idRequestToSparePart = ?;";
     private final String DELETE_QUERY = "DELETE FROM mydb.requesttosparepart WHERE idRequestToSparePart = ?;";
 
     @Override
@@ -66,7 +66,7 @@ public class RequestToSparePartDAO extends AbstractDAO<RequestToSparePart, Integ
             statement.setDate(3, object.getDate());
             statement.setString(4, object.getStatus());
             statement.setString(5, object.getCreaterOfCar());
-            statement.setString(5, object.getModelOfCar());
+            statement.setString(6, object.getModelOfCar());
         } catch (Exception e) {
             throw new PersistException(e);
         }
@@ -110,5 +110,5 @@ public class RequestToSparePartDAO extends AbstractDAO<RequestToSparePart, Integ
         }
         return requests;
     }
-    
+
 }
