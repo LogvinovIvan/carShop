@@ -219,7 +219,7 @@
             </div>
         </div>
 
-</div>
+
 </main>
 </div>
 <footer class="footer container">
