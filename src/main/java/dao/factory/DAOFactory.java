@@ -24,6 +24,7 @@ public class DAOFactory {
         daoHashMap.put("storageCar", new StorageCarDAO());
         daoHashMap.put("user", new UserDAO());
         daoHashMap.put("worker", new WorkerDAO());
+        daoHashMap.put("requestToSparePart", new RequestToSparePartDAO());
     }
 
     public static WorkerDAO getWorkerDAO() {

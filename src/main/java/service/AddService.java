@@ -10,17 +10,17 @@ import dao.implementation.Identified;
 /**
  * Created by evgen on 09.04.2016.
  */
-public class AddService  {
-    public static void add(Identified obj, String typeOfDao) throws ServiceException{
+public class AddService {
+    public static Identified add(Identified obj, String typeOfDao) throws ServiceException {
         DAOFactory daoFactory = new DAOFactory();
         AbstractDAO dao = daoFactory.getDao(typeOfDao);
-        if (dao == null){
-            return;
+        if (dao == null) {
+            throw new ServiceException();
         }
         try {
-            dao.persist(obj);
-        }catch (DAOException ex){
+            return dao.persist(obj);
+        } catch (DAOException | PersistException ex) {
             throw new ServiceException(ex);
-        }catch (PersistException e){}
+        }
     }
 }

@@ -7,6 +7,7 @@ import dao.factory.DAOFactory;
 import entity.Car;
 import entity.Client;
 import entity.User;
+import entity.Worker;
 import service.AddService;
 import service.DeleteService;
 import service.FindService;
@@ -33,22 +34,41 @@ public class AuthorizationController extends HttpServlet {
                 try {
                     user = (User) FindService.find(request.getParameter("login").toString(), "user");
 
-
-                    if (user.getPassword().equals(request.getParameter("password").toString())) {
-                        //RequestDispatcher view = request.getRequestDispatcher("/JustTry.jsp");
-                        //view.forward(request, response);
-                        response.sendRedirect("/workers");
-                    } else {
-                        RequestDispatcher view = request.getRequestDispatcher("/index.jsp");
-                        view.forward(request, response);
-                        request.setAttribute("error", "error");
+                    if (user!=null) {
+                        if (user.getPassword().equals(request.getParameter("password").toString())) {
+                            Worker worker = (Worker) FindService.find(user.getIdWorker(), "worker");
+                            switch (worker.getPosition()){
+                                case "Customer":{
+                                    response.sendRedirect("/clients");
+                                    break;
+                                }
+                                case "Storekeeper":{
+                                    response.sendRedirect("/spares");
+                                    break;
+                                }
+                                case "Mechanic":{
+                                    response.sendRedirect("/services?role=mechanic");
+                                    break;
+                                }
+                                case "Admin":{
+                                    response.sendRedirect("/workers");
+                                    break;
+                                }
+                                default: {
+                                    response.sendRedirect("/");
+                                }
+                            }
+                        }else {
+                            response.sendRedirect("/");
+                        }
+                    }else {
+                        response.sendRedirect("/");
                     }
                 } catch (ServiceException ex) {
-                    response.getWriter().append(ex.getMessage());
+                    response.sendRedirect("/");
                 }
                 break;
         }
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

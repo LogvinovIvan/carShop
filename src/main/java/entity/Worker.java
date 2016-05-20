@@ -7,7 +7,7 @@ import dao.implementation.Identified;
  */
 public class Worker implements Identified<Integer> {
     private Integer id;
-    private String firstName="bla";
+    private String firstName;
     private String lastName;
     private String position;
     private String phoneNumber;

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+
+    <package name="default" extends="json-default" namespace="/">
+        <action name="autorizate" class="controller.action.AutorizationAction">
+            <result name="success" type="json">
+                <param name="root">autorizationAnswer</param>
+            </result>
+        </action>
+    </package>
+
+
+    <package name="car" extends="json-default" namespace="/car">
+        <action name="*" class="controller.action.CarAction" method="{1}">
+            <result name="success" type="json">
+                <param name="root">answer</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">answer</param>
+            </result>
+        </action>
+    </package>
+
+
+    <package name="client" extends="json-default" namespace="/client">
+        <action name="*" class="controller.action.ClientAction" method="{1}">
+            <result name="success" type="json">
+                <param name="root">answer</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">answer</param>
+            </result>
+        </action>
+    </package>
+
+    <package name="entryToServiceAction" extends="json-default" namespace="/entryToService">
+        <action name="*" class="controller.action.EntryToServiceAction" method="{1}">
+            <result name="success" type="json">
+                <param name="root">answer</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">answer</param>
+            </result>
+        </action>
+    </package>
+
+    <package name="sparePart" extends="json-default" namespace="/sparePart">
+        <action name="*" class="controller.action.SparePartAction" method="{1}">
+            <result name="success" type="json">
+                <param name="root">answer</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">answer</param>
+            </result>
+        </action>
+    </package>
+
+    <package name="storageCar" extends="json-default" namespace="/storageCar">
+        <action name="*" class="controller.action.StorageCarAction" method="{1}">
+            <result name="success" type="json">
+                <param name="root">answer</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">answer</param>
+            </result>
+        </action>
+    </package>
+
+    <package name="testDrive" extends="json-default" namespace="/testDrive">
+        <action name="*" class="controller.action.TestDriveAction" method="{1}">
+            <result name="success" type="json">
+                <param name="root">answer</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">answer</param>
+            </result>
+        </action>
+    </package>
+
+    <package name="worker" extends="json-default" namespace="/worker">
+        <action name="*" class="controller.action.WorkerAction" method="{1}">
+            <result name="success" type="json">
+                <param name="root">answer</param>
+            </result>
+            <result name="error" type="json">
+                <param name="root">answer</param>
+            </result>
+        </action>
+    </package>
+
+
+</struts>

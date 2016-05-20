@@ -19,8 +19,9 @@ public class DeleteService {
         }
         try {
             dao.delete(obj);
-        }catch (DAOException ex){
+        }catch (DAOException| PersistException ex){
             throw new ServiceException(ex);
-        }catch (PersistException e){}
+        }
     }
+
 }
